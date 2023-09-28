@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class MonsterController : MonoBehaviour
 {
-    public Transform character;
-    public Vector3 offset;
-
     [SerializeField]
     float leftLimit;
 
@@ -19,25 +16,35 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     float upperLimit;
 
+
+
+    public float moveSpeed = 10f; // скорость перемещения
+    private Transform target; // игрок
+
+    Rigidbody m_Rigidbody;
+    void Start()
+    {
+        target = GameObject.FindWithTag("Player").transform;
+    }
+
     void Update()
     {
-        if (character != null)
+        // Проверка на видимость игрока  
+   /*     if (Vector3.Distance(transform.position, target.position) < 2)
         {
-            transform.position = new Vector3(character.position.x + offset.x, character.position.y + offset.y, character.position.z + offset.z);
-        }
-
-
-        transform.position = new Vector3
-            (
-            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
-            Mathf.Clamp(transform.position.y, bottomLimit, upperLimit),
-            transform.position.z
-            );
+            // Если игрок находится в зоне видимости, монстр начинает двигаться к нему  
+            transform.LookAt(target);
+            Vector3 moveDir = transform.forward * moveSpeed * Time.deltaTime;
+            m_Rigidbody.MovePosition(transform.position + moveDir);
+        }*/
     }
+
+
+
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawLine(new Vector2(leftLimit, upperLimit), new Vector2(rightLimit, upperLimit));
         Gizmos.DrawLine(new Vector2(leftLimit, bottomLimit), new Vector2(rightLimit, bottomLimit));
         Gizmos.DrawLine(new Vector2(leftLimit, upperLimit), new Vector2(leftLimit, bottomLimit));

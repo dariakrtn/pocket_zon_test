@@ -728,9 +728,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4664862033757341849}
   - component: {fileID: 8736754596135042345}
+  - component: {fileID: 1064669114759709165}
   m_Layer: 0
   m_Name: Mutant
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,3 +770,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthMaxValue: 80
+  damagePerSecond: 20
+  shmot: {fileID: 4801198149560336368, guid: c3a36c2a7bc13f644933f2ed359328df, type: 3}
+  g_over: {fileID: 0}
+--- !u!58 &1064669114759709165
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8736754596135042350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
